@@ -1,13 +1,3 @@
-const statsNav = document.getElementById("statsNav");
-const main = document.getElementById("main");
-const sidebarMenu = document.getElementById("sidebarMenu");
-const navElements = sidebarMenu.querySelectorAll("a");
-const milestonesNav = sidebarMenu.querySelector(".milestones");
-const gallaryNav = document.querySelector(".gallaryNav");
-const health = document.querySelector(".health");
-const sendMessageBtn = document.querySelector(".SendBtn");
-const carousel = document.querySelector(".carousel");
-
 function markSideNav(e) {
   const home = document.getElementById("home");
   navElements.forEach((el) => {
@@ -23,29 +13,31 @@ function markSideNav(e) {
   }
 }
 
-const response = [
-  {
-    id: 123,
-    age: 1,
-    weight: 10,
-    height: 50,
-  },
-  {
-    id: 456,
-    age: 3,
-    weight: 16,
-    height: 70,
-  },
-];
+// const response = [
+//   {
+//     id: 123,
+//     age: 1,
+//     weight: 10,
+//     height: 50,
+//   },
+//   {
+//     id: 456,
+//     age: 3,
+//     weight: 16,
+//     height: 70,
+//   },
+// ];
 
 function callStats(params) {
-  displayStats(response);
+  axios.get(statsUrl).then((res) => {
+    displayStats(res);
+  });
 }
 
 function renderStats(e) {
   main.innerHTML = stats;
-  callStats();
   markSideNav(e);
+  callStats();
 }
 
 function sendStatsHandler(e) {
@@ -53,15 +45,15 @@ function sendStatsHandler(e) {
   const age = document.getElementById("age").value;
   const height = document.getElementById("height").value;
   const weight = document.getElementById("weight").value;
-  const statsObj = [
-    {
-      age,
-      height,
-      weight,
-    },
-  ];
+  const statsObj = {
+    age: +age,
+    weight: +weight,
+    hight: +height,
+  };
+
   console.log(statsObj);
   displayStats(statsObj);
+  axios.post(statsUrl, statsObj);
   // send obj to api
 }
 

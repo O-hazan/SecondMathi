@@ -34,8 +34,9 @@ class="table table-hover mx-auto pt-4"
 // export default stats
 
 function displayStats(response) {
+  const statsTbody = document.querySelector("tbody");
+  response = response.data;
   for (let i = 0; i < response.length; i++) {
-    const statsTbody = document.querySelector("tbody");
     let tr = "";
     tr = `<tr>
       <td>
@@ -43,7 +44,7 @@ function displayStats(response) {
        Month</td><td> 
       ${response[i].weight} 
        KG</td><td>
-      ${response[i].height} 
+      ${response[i].hight} 
        CM</td><td> <input
        class="btn btn-primary deleteBtn cust-btn"
        type="delete"
@@ -66,6 +67,7 @@ function onDeleteRow(e) {
   deleteBtnId = btn.id;
   formData = '{ "id": ' + deleteBtnId + " }";
   btn.closest("tr").remove();
-  // fetchHandler("delete");
-  // remove from API
+  axios.delete(`${statsUrl}/${btn.id}`, {
+    data: { id: deleteBtnId },
+  });
 }
