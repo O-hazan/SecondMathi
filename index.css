@@ -1,0 +1,159 @@
+/* body {
+    margin: 0;
+    width: 100%;
+} */
+.wrapper {
+  border: solid 1px black;
+}
+
+.header {
+  margin-left: 10%;
+  margin-right: 10%;
+  border: solid 1px black;
+}
+
+h1 {
+  border: solid 1px black;
+}
+
+/* .sidebar {
+  border: solid 1px black;
+  width: 10%;
+  height: 900px;
+} */
+
+.border {
+  border: solid 1px black;
+}
+
+.cust-btn {
+  width: 78px !important;
+}
+/* .carouselExampleSlidesOnly {
+  height: 80px;
+  width: 80px;
+} */
+
+/* .mb-3 {
+  height: 80%;
+  width: 80%;
+} */
+
+/* .card-right {
+  height: 100%;
+} */
+
+body {
+  /* background-color: #fbfbfb; */
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+@media (min-width: 991.98px) {
+  main {
+    padding-left: 240px;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 58px 0 0; /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 240px;
+  z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+.sidebar .active {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.table-hover {
+  width: 50%;
+  margin-top: 5rem;
+}
+
+.scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  /* Starting position */
+  transform: translateX(00%);
+  /* Apply animation to this element */
+  animation: scroll-left 15s linear infinite;
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+body {
+  /* background-color: #00FFFF; */
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+
+html {
+  height: 100%;
+}
+/* main {
+  background-color: rgb(196, 255, 255);
+} */
+
+a {
+  /* background-color: rgb(211, 255, 255); */
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    313deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+
+.scroll-d {
+  /* background-color: rgb(211, 255, 255); */
+  /* background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  ); */
+  margin-left: 10px;
+  display: flex;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
