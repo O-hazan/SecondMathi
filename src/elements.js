@@ -8,3 +8,4 @@ const health = document.querySelector(".health");
 const sendMessageBtn = document.querySelector(".SendBtn");
 const carousel = document.querySelector(".carousel");
 const statsUrl = "https://fastapionly.herokuapp.com/stats";
+// let sendStats;

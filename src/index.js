@@ -13,21 +13,6 @@ function markSideNav(e) {
   }
 }
 
-// const response = [
-//   {
-//     id: 123,
-//     age: 1,
-//     weight: 10,
-//     height: 50,
-//   },
-//   {
-//     id: 456,
-//     age: 3,
-//     weight: 16,
-//     height: 70,
-//   },
-// ];
-
 function callStats(params) {
   axios.get(statsUrl).then((res) => {
     displayStats(res);
@@ -35,12 +20,18 @@ function callStats(params) {
 }
 
 function renderStats(e) {
+  // console.log(e.target.classList[4]);
+  // const script = document.createElement("script");
+  // script.src = "/src/components/stats.js";
+  // document.documentElement.firstChild.appendChild(script);
   main.innerHTML = stats;
+
   markSideNav(e);
   callStats();
 }
 
 function sendStatsHandler(e) {
+  console.log("sendStatsHandler");
   e.preventDefault();
   const age = document.getElementById("age").value;
   const height = document.getElementById("height").value;
@@ -50,11 +41,8 @@ function sendStatsHandler(e) {
     weight: +weight,
     hight: +height,
   };
-
-  console.log(statsObj);
-  displayStats(statsObj);
   axios.post(statsUrl, statsObj);
-  // send obj to api
+  displayStats(statsObj);
 }
 
 function renderMilstones(e) {
@@ -82,7 +70,6 @@ function sendMessageHandler(e) {
     message: message,
   };
   const popup = document.querySelector(".popup");
-  console.log(popup);
   const toastLiveExample = document.getElementById("liveToast");
   const toast = new bootstrap.Toast(toastLiveExample);
   toast.show();
