@@ -71,8 +71,6 @@ function displayStats(response) {
     statsTbody.append(newTr);
   }
   sendStats = document.getElementById("sendStats");
-
-  console.log(sendStats);
   sendStats.addEventListener("click", sendStatsHandler);
   const tableEl = document.querySelector("table");
   tableEl.addEventListener("click", onDeleteRow);
@@ -110,3 +108,12 @@ function isEmpty() {
     sendStats.classList.add("disabled");
   }
 }
+
+// const loader = document.getElementById("loader");
+// window.addEventListener("load", function (e) {
+  // loader.style.height = "100%";
+  // loader.style.width = "100%";
+  // loader.style.display = "none";
+  // loader.style.borderRadius = "50%";
+  // loader.style.visibility = "hidden";
+// });
