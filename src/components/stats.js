@@ -59,12 +59,10 @@ function onDeleteRow(e) {
 }
 
 function isEmpty() {
-  console.log("in");
   const age = document.getElementById("age").value;
   const height = document.getElementById("height").value;
   const weight = document.getElementById("weight").value;
   if (age != "" && height != "" && weight != "") {
-    console.log(";why");
     const sendStats = document.getElementById("sendStats");
     sendStats.classList.remove("disabled");
     // sendStats.classList.toggle("disabled");

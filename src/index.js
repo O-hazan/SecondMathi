@@ -49,7 +49,6 @@ function renderStatsHandler(e) {
 // }
 
 function sendStatsHandler(e) {
-  console.log("sendStatsHandler");
   e.preventDefault();
   const age = document.getElementById("age").value;
   const height = document.getElementById("height").value;
@@ -100,7 +99,6 @@ function renderGallaryHandler_org(e) {
   // End loop
   main.append(divEl);
   main.append(fullDiv);
-  console.log(main.lastChild.id);
 }
 
 function renderGallaryHandler(e) {
@@ -135,7 +133,6 @@ function renderGallaryHandler(e) {
   // End loop
   main.append(divEl);
   main.append(fullDiv);
-  console.log(main.lastChild.id);
 }
 
 function imageFullScreen(e) {
@@ -146,7 +143,6 @@ function imageFullScreen(e) {
     const modalImg = document.getElementById("img01");
     modal.style.display = "block";
     modalImg.src = e.target.src;
-    console.log(span);
     // Get the <span> element that closes the modal
     const container = document.querySelector(".container-fluid");
 
@@ -183,7 +179,6 @@ function sendMessageHandler(e) {
   document.getElementById("sender").value = "";
   document.getElementById("message").value = "";
   axios.post(BASE_URL + "/message", messageObj).then((res) => {
-    console.log(res);
   });
   const toastLiveExample = document.getElementById("liveToast");
   const toast = new bootstrap.Toast(toastLiveExample);
