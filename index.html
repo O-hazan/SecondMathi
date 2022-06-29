@@ -25,10 +25,11 @@
     <script src="https://cdn.jsdelivr.net/gh/loadingio/ldLoader@v1.0.0/dist/ldld.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script src="/src/elements.js" defer></script>
+    <script src="/src/index.js" defer></script>
+
     <script src="/src/components/gallary.js" defer></script>
     <script src="/src/components/milestones.js" defer></script>
     <script src="/src/components/stats.js" defer></script>
-    <script src="/src/index.js" defer></script>
     <title>MathiSecond</title>
   </head>
   <body>
@@ -36,9 +37,9 @@
       <span id="close" class="close">&times;</span>
       <img class="modal-content" id="img01">
     </div>
-    <div id="loader">
+    <!-- <div id="loader">
       <img src="/Resources/loading.gif" />
-    </div>
+    </div> -->
     <!-- <div id="full" style="display: none;">
       <img id="fullImg" src="" />
     </div> -->
@@ -48,9 +49,9 @@
     <header>
       <nav
         id="sidebarMenu"
-        class=" d-lg-block sidebar collapse"
+        class=" d-lg-block sidebar collapse "
       >
-        <div class="position-sticky">
+        <div class="position-sticky ">
           <div class="list-group list-group-flush mx-3 mt-4" id="sideNavDiv">
             <a
               href="/index.html"
@@ -132,7 +133,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html">
             <img
-              src="./Resources/b327bb39d5264e7995b550d6d41c413d (2).png"
+              src="./Resources/rice1.jpeg"
               height="50"
               alt="Mathi Logo"
               loading="lazy" />
@@ -218,7 +219,7 @@
           </div>
         </div> -->
         <div class="row scroll-d ">
-        <h5 class=" text-center pt-2 scroll">Mathi is recovering from mouth hands feet disease 😩, though he seems to feel much better!🤗🥳</h5>
+        <h5 class="news text-center pt-2 scroll"></h5>
       </div>
       <div class="row ">
         <div class="col-4 ">
@@ -231,22 +232,21 @@
           <form action="">
           <div class="mb-3">
             <h5 class="text-center">Send me a message</h5>
-            <label for="exampleFormControlInput1" class="form-label" >Title</label>
-            <input type="text" class="form-control Title" id="exampleFormControlInput1" placeholder="">
-            <label for="exampleFormControlInput1" class="form-label">Sender</label>
-            <input type="text" class="form-control Sender " id="exampleFormControlInput2" placeholder="">
+            <label for="title" class="form-label" >Title</label>
+            <input onkeyup="isEmptyMessage()" type="text" class="form-control Title" id="title" placeholder="">
+            <label for="Sender" class="form-label" id="labelSender">Sender</label>
+            <input onkeyup="isEmptyMessage()" type="text" class="form-control Sender " id="sender" placeholder="">
           </div>
-          
           <div class="mb-3 gap-2 mx-auto popup">
             <label for="exampleFormControlTextarea1" class="form-label ">Message</label>
-            <textarea class="form-control Message" id="exampleFormControlTextarea1" rows="3" ></textarea>
+            <textarea onkeyup="isEmptyMessage()" class="form-control Message" id="message" rows="3" ></textarea>
             <p></p>
-            <button type="submit" class="btn btn-primary btn-sm SendBtn">Send</button>
+            <button type="submit" class="btn btn-primary btn-sm SendBtn" disabled>Send</button>
 
           </div>
         </form>
         </div>
-        <div class="col-6 "></div>
+        <div class="col-6 calendar"></div>
       </div>
 
 <div class="position-fixed bottom-0 end-10 p-3" style="z-index: 11">
@@ -255,14 +255,14 @@
       <img src="/Resources/b327bb39d5264e7995b550d6d41c413d (2).png" style="height: 30px;" class="rounded me-2" alt="...">
       <strong class="me-auto state">Success</strong>
       <!-- <small>Soon i will answer</small> -->
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <button  type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
       Your message has been sent!
     </div>
   </div>
-</div>
-      </main>
+</div></main>
+
       <!-- <div class="row row-cols-1 row-cols-md-4 g-4"></div> -->
 
 

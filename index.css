@@ -58,6 +58,10 @@ body {
   }
 }
 
+/* #sidebarMenu{
+  margin-left: 200px;
+} */
+
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -118,6 +122,7 @@ body {
 
 body {
   /* background-color: #00FFFF; */
+
   background: rgb(34, 193, 195);
   background: linear-gradient(
     184deg,
@@ -129,9 +134,10 @@ body {
 html {
   height: 100%;
 }
-/* main {
-  background-color: rgb(196, 255, 255);
-} */
+
+main {
+  padding-right: 10%;
+}
 
 a {
   /* background-color: rgb(211, 255, 255); */
@@ -273,4 +279,12 @@ a {
   .modal-content {
     width: 100%;
   }
+}
+
+#labelSender {
+  margin-top: 10px;
+}
+
+tr {
+  text-align: center;
 }

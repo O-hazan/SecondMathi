@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const gallary = `
 <div class="row row-cols-1 row-cols-md-6 g-3" style="margin-right: 0px">
           <div class="col">

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const stats = `<table
 class="table table-hover mx-auto pt-4"
 >
@@ -6,30 +8,9 @@ class="table table-hover mx-auto pt-4"
     <th scope="col" class="col-2">Age</th>
     <th scope="col" class="col-2">Weight</th>
     <th scope="col" class="col-2">Height</th>
-    <th scope="col"></th>
   </tr>
 </thead>
-<tbody>
-
-  <form action="">
-              <tr>
-                <td><div class="row">
-                  <div >
-                  <input id="age" type="number" class="form-control" onkeyup="isEmpty()"   />
-                </div></td>
-                <td><div class="row">
-                  <div >
-                  <input id="weight" type="number" class="form-control" onkeyup="isEmpty()"  />
-                </div></td>
-                <td><div class="row">
-                  <div >
-                  <input id="height" type="number" class="form-control" onkeyup="isEmpty()" />
-                </div></td>  <td><div class="row">
-                  <div >
-                    <input id="sendStats" class="btn btn-success cust-btn disabled" type="submit" value="Submit" >
-                </div></td>
-              </tr>
-            </form>`;
+<tbody>`;
 
 function displayStats(response) {
   const statsTbody = document.querySelector("tbody");
@@ -45,12 +26,7 @@ function displayStats(response) {
         ${response[i].weight} 
          KG</td><td>
         ${response[i].hight} 
-         CM</td><td> <input
-         class="btn btn-primary deleteBtn cust-btn"
-         type="delete"
-         value="Delete"
-         id="${response[i].id}"
-       /></td></tr>`;
+         CM</td></tr>`;
       statsTbody.innerHTML += tr;
     }
   } else {
@@ -62,16 +38,9 @@ function displayStats(response) {
     ${response.weight} 
      KG</td><td>
     ${response.hight} 
-     CM</td><td> <input
-     class="btn btn-primary deleteBtn cust-btn"
-     type="delete"
-     value="Delete"
-     id="${response.id}"
-   /></td>`;
+     CM</td><td>`;
     statsTbody.append(newTr);
   }
-  sendStats = document.getElementById("sendStats");
-  sendStats.addEventListener("click", sendStatsHandler);
   const tableEl = document.querySelector("table");
   tableEl.addEventListener("click", onDeleteRow);
 }
@@ -111,9 +80,9 @@ function isEmpty() {
 
 // const loader = document.getElementById("loader");
 // window.addEventListener("load", function (e) {
-  // loader.style.height = "100%";
-  // loader.style.width = "100%";
-  // loader.style.display = "none";
-  // loader.style.borderRadius = "50%";
-  // loader.style.visibility = "hidden";
+// loader.style.height = "100%";
+// loader.style.width = "100%";
+// loader.style.display = "none";
+// loader.style.borderRadius = "50%";
+// loader.style.visibility = "hidden";
 // });

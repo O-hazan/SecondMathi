@@ -1,0 +1,25 @@
+{
+  "name": "secondmathi",
+  "version": "1.0.0",
+  "description": "mathi second",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-hazan/SecondMathi.git"
+  },
+  "author": "omer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-hazan/SecondMathi/issues"
+  },
+  "homepage": "https://github.com/O-hazan/SecondMathi#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0"
+  }
+}

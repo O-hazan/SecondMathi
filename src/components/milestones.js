@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const milestones = `<div class="container-fluid pt-2 row">
 <div class="card text-left col">
   <img class="card-img-top" src="/Resources/icecream.jpeg" alt="" />

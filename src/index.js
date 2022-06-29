@@ -1,57 +1,10 @@
-const images = [
-  {
-    id: 1,
-    path: "amit.jpg",
-    desc: "amit",
-  },
-  {
-    id: 2,
-    path: "pregnancy/p-ball.jpg",
-    desc: "Tanning pregnant",
-  },
-  {
-    id: 3,
-    path: "pregnancy/p-omer-pancha.jpg",
-    desc: "Omer and Pancha expecting",
-  },
-  {
-    id: 4,
-    path: "pregnancy/p-park-tan.jpg",
-    desc: "Tanning in the sun",
-  },
-  {
-    id: 5,
-    path: "pregnancy/p-mirror-together.jpg",
-    desc: "mer and Pancha in the mirror",
-  },
-  {
-    id: 6,
-    path: "pregnancy/p-mirror-check.jpg",
-    desc: "Pancha in mirrow",
-  },
-  {
-    id: 7,
-    path: "driving.jpg",
-    desc: "Drive",
-  },
-  {
-    id: 8,
-    path: "bread.jpeg",
-    desc: "Loves bread",
-  },
-  {
-    id: 9,
-    path: "sleep.jpg",
-    desc: "sleeping",
-  },
-];
-
-window.addEventListener("load", function (e) {
-  removeLoader();
-});
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+// window.addEventListener("load", function () {
+//   removeLoader();
+// });
 
 function markSideNav(e) {
-  const home = document.getElementById("home");
   navElements.forEach((el) => {
     el.classList.remove("active");
     el.style.backgroundColor = "rgb(196, 255, 255)";
@@ -68,9 +21,9 @@ function markSideNav(e) {
   }
 }
 
-function callStats(params) {
+function callStats() {
   axios.get(statsUrl).then((res) => {
-    removeLoader();
+    // removeLoader();
     displayStats(res);
   });
 }
@@ -81,19 +34,19 @@ function renderStatsHandler(e) {
   // script.src = "/src/components/stats.js";
   // document.documentElement.firstChild.appendChild(script);
   callStats();
-  showLoader(); // loader.style.visibility = "";
+  //   showLoader(); // loader.style.visibility = "";
   main.innerHTML = stats;
   markSideNav(e);
   // const loader = document.getElementById("loader");
 }
 
-function showLoader(params) {
-  loader.style.display = "block";
-}
+// function showLoader() {
+//   loader.style.display = "block";
+// }
 
-function removeLoader(params) {
-  loader.style.display = "none";
-}
+// function removeLoader() {
+//   loader.style.display = "none";
+// }
 
 function sendStatsHandler(e) {
   console.log("sendStatsHandler");
@@ -115,6 +68,41 @@ function renderMilstones(e) {
   markSideNav(e);
 }
 
+function renderGallaryHandler_org(e) {
+  // loader.style.display = "block";
+  // main.innerHTML = gallary;
+  // const images = main.querySelectorAll("img");
+  // main.classList.add("gallary");
+  main.addEventListener("click", imageFullScreen);
+  markSideNav(e);
+  main.innerHTML = "";
+  const divEl = document.createElement("div");
+  divEl.classList.add("row", "row-cols-1", "row-cols-md-6", "g-3");
+  divEl.style = "margin-right: 0px";
+  // Loop here below
+  let images1 = [];
+  axios.get(BASE_URL + "/gallery").then((res) => {
+    for (let i = 0; i < res.data.length; i++) {
+      const div = document.createElement("div");
+      div.innerHTML = `</div> <div class="col">
+		<div class="">
+		  <img src="/Resources/${res.data[i].path}" class="card-img-top" alt="..." loading="lazy" />
+		</div>
+		</div>`;
+      divEl.append(div);
+    }
+  });
+  const fullDiv = document.createElement("div");
+  const fullImg = document.createElement("img");
+  fullImg.id = "full-screen-img";
+  fullDiv.id = "full-screen-div";
+  fullDiv.append(fullImg);
+  // End loop
+  main.append(divEl);
+  main.append(fullDiv);
+  console.log(main.lastChild.id);
+}
+
 function renderGallaryHandler(e) {
   // loader.style.display = "block";
   // main.innerHTML = gallary;
@@ -127,15 +115,18 @@ function renderGallaryHandler(e) {
   divEl.classList.add("row", "row-cols-1", "row-cols-md-6", "g-3");
   divEl.style = "margin-right: 0px";
   // Loop here below
-  for (let i = 0; i < images.length; i++) {
-    const div = document.createElement("div");
-    div.innerHTML = `</div> <div class="col">
-    <div class="">
-      <img src="/Resources/${images[i].path}" class="card-img-top" alt="..." loading="lazy" />
-    </div>
-    </div>`;
-    divEl.append(div);
-  }
+  let images1 = [];
+  axios.get(BASE_URL + "/gallery").then((res) => {
+    for (let i = 0; i < res.data.length; i++) {
+      const div = document.createElement("div");
+      div.innerHTML = `</div> <div class="col">
+		<div class="">
+		  <img src="http://127.0.0.1:8000/images/${res.data[i].path}" class="card-img-top" alt="..." loading="lazy" />
+		</div>
+		</div>`;
+      divEl.append(div);
+    }
+  });
   const fullDiv = document.createElement("div");
   const fullImg = document.createElement("img");
   fullImg.id = "full-screen-img";
@@ -148,8 +139,6 @@ function renderGallaryHandler(e) {
 }
 
 function imageFullScreen(e) {
-  const fullDiv = document.getElementById("full-screen-div");
-  const fullDivImg = document.getElementById("full-screen-img");
   if (!e.target.src || e.target.classList != "card-img-top") {
     return;
   } else {
@@ -178,29 +167,43 @@ function removeFullscreen(params) {
   modal.style.display = "none";
 }
 
+const newsText = `<div><h1>Health</h1></div>`;
 function renderHealth(e) {
   markSideNav(e);
+  main.innerHTML = newsText;
 }
 
 function sendMessageHandler(e) {
   e.preventDefault();
-  const title = document.getElementById("exampleFormControlInput1").value;
-  const sender = document.getElementById("exampleFormControlInput2").value;
-  const message = document.getElementById("exampleFormControlTextarea1").value;
-  const messageObj = {
-    title: title,
-    sender: sender,
-    message: message,
-  };
-  const popup = document.querySelector(".popup");
+  const title = document.getElementById("title").value;
+  const sender = document.getElementById("sender").value;
+  const message = document.getElementById("message").value;
+  const messageObj = { title, sender, message };
+  document.getElementById("title").value = "";
+  document.getElementById("sender").value = "";
+  document.getElementById("message").value = "";
+  axios.post(BASE_URL + "/message", messageObj).then((res) => {
+    console.log(res);
+  });
   const toastLiveExample = document.getElementById("liveToast");
   const toast = new bootstrap.Toast(toastLiveExample);
-  toast.show();
   const toastBody = document.querySelector(".toast-body");
-  toastBody.textContent = `${sender}, your message has been sent!`;
+  toastBody.textContent = `Your message has been sent!`;
   const state = document.querySelector(".state");
-  state.textContent = "Server response";
-  // send messageObj to API
+  state.textContent = `Thanks ${sender}!`;
+  toast.show();
+  sendMessageBtn.setAttribute("disabled", true);
+}
+
+function isEmptyMessage(params) {
+  const title = document.getElementById("title");
+  const sender = document.getElementById("sender");
+  const message = document.getElementById("message");
+  if (title.value != "" && sender.value != "" && message.value != "") {
+    sendMessageBtn.removeAttribute("disabled");
+  } else {
+    sendMessageBtn.setAttribute("disabled", true);
+  }
 }
 
 const sideNavDiv = document.getElementById("sideNavDiv");
@@ -211,3 +214,16 @@ healthNav.addEventListener("click", renderHealth);
 sendMessageBtn.addEventListener("click", sendMessageHandler);
 carousel.addEventListener("click", renderGallaryHandler);
 span.addEventListener("click", removeFullscreen);
+news.addEventListener("click", renderHealth);
+
+// load news
+
+function getNews(e) {
+  axios.get(BASE_URL + "/feed").then((res) => {
+    let reversedArr = res.data.reverse();
+    news.textContent = reversedArr[0].content;
+  });
+}
+getNews();
+// news.textContent =
+//   "Mathi is recovering from mouth hands feet disease 😩, though he seems to feel much better!🤗🥳";
