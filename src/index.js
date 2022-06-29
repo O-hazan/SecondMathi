@@ -121,7 +121,7 @@ function renderGallaryHandler(e) {
       const div = document.createElement("div");
       div.innerHTML = `</div> <div class="col">
 		<div class="">
-		  <img src="http://127.0.0.1:8000/images/${res.data[i].path}" class="card-img-top" alt="..." loading="lazy" />
+		  <img src="https://fastapionly.herokuapp.com/images/${res.data[i].path}" class="card-img-top" alt="..." loading="lazy" />
 		</div>
 		</div>`;
       divEl.append(div);
