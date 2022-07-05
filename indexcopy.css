@@ -1,0 +1,86 @@
+/* a {
+  margin-left: 10px;
+} */
+
+.navbar {
+  padding-left: 3.33%;
+  /* background-color: gray; */
+  /* opacity: 0.4; */
+}
+
+/* .navbar-collapse{
+  width: 100%;
+} */
+
+.navbar-collapse ul {
+  /* padding-left: 10%; */
+
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+}
+
+.nav-link {
+  color: white;
+}
+
+/* 
+.col-6{
+width: 30%;
+} */
+
+.carousel-item {
+  /* padding-left: 10%;
+padding-right: 10%; */
+  width: 100%;
+}
+
+.carousel-inner {
+  width: 100%;
+  max-height: 400px !important;
+}
+
+.SendMessageForm {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+
+  /* max-width: 200px; */
+}
+
+.PlayDateForm {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+
+  /* max-width: 200px; */
+}
+
+.currentStatsCard {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+
+  /* max-width: 200px; */
+}
+
+main {
+  font-family: "Oswald", sans-serif;
+  font-size: large;
+}
+
+.milstoneDiv .card{
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  ); 
+}
+
+.bg{
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  ); /* opacity: 0.7; */
+}

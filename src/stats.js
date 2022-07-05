@@ -13,8 +13,9 @@ class="table table-hover mx-auto pt-4"
 <tbody>`;
 
 function displayStats(response) {
+  main.classList.remove("container-fluid");
+  main.classList.add("container-sm", "px-0");
   const statsTbody = document.querySelector("tbody");
-  let sendStats = document.getElementById("sendStats");
   if (response.data) {
     response = response.data;
     for (let i = 0; i < response.length; i++) {
