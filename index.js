@@ -164,6 +164,7 @@ function renderGalleryHandler(e) {
   fullDiv.id = "full-screen-div";
   fullDiv.append(fullImg);
   // End loop
+  main.classList.remove("container-sm");
   main.classList.add("container-fluid", "pt-3");
   main.append(divEl);
   main.append(fullDiv);
