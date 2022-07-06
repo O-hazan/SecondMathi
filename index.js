@@ -150,9 +150,11 @@ function renderGalleryHandler(e) {
   axios.get(BASE_URL + "/gallery").then((res) => {
     for (let i = 0; i < res.data.length; i++) {
       const div = document.createElement("div");
+      // let valid = false;
+      // axios.get(BASE_URL + "/images/" + res.data[i].path);
       div.innerHTML = `</div> <div class="col">
 		<div class="">
-		  <img src="${BASE_URL}/images/${res.data[i].path}" class=" img-fluid rounded" id="cardImgTop" alt="..." loading="lazy" />
+		  <img src="${BASE_URL}/images/${res.data[i].path}" onError=removeUnusedImages(this) class=" img-fluid rounded" id="cardImgTop" alt="..." loading="lazy" />
 		</div>
 		</div>`;
       divEl.append(div);
@@ -168,6 +170,10 @@ function renderGalleryHandler(e) {
   main.classList.add("container-fluid", "pt-3");
   main.append(divEl);
   main.append(fullDiv);
+}
+
+function removeUnusedImages(img) {
+  img.parentNode.parentNode.parentNode.remove();
 }
 
 function imageFullScreen(e) {
