@@ -31,13 +31,6 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .carousel-inner {
-    width: 100%;
-    padding: 0;
-  }
-}
-
 /*  on Medium Screens */
 @media only screen and (max-width: 768px) {
   .modal-content {
@@ -50,5 +43,13 @@
   .close {
     top: 1px;
     right: 5px;
+    z-index: 1080;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .carousel-inner {
+    width: 100%;
+    padding: 0;
   }
 }
