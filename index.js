@@ -250,3 +250,8 @@ carousel.addEventListener("click", renderGalleryHandler);
 span.addEventListener("click", removeFullscreen);
 news.addEventListener("click", renderHealth);
 getNews();
+
+document.addEventListener("scroll", () => {
+  console.log
+  removeFullscreen();
+});
