@@ -14,14 +14,12 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/checkout@master
         with:
-         name: ohazan/second-mathi-wdio   
-      - run: npm install -g serve
-      - run: serve &
-
+         name: ohazan/second-mathi-wdio
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-
+      - run: npm install -g serve
+      - run: serve &
       - run: sudo apt-get install chromium-browser
       - run: npm install
       - run: npx wdio
