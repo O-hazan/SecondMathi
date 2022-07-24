@@ -29,6 +29,7 @@
       rgba(253, 187, 45, 1) 100%
     );
   }
+  
 }
 
 /*  on Medium Screens */
@@ -40,9 +41,9 @@
   .modal {
     padding-top: 50px;
   }
-  .close {
-    top: 1px;
-    right: 5px;
+  #close {
+    top: -15px;
+    right: 10px;
     z-index: 1080;
   }
   #row-news {
@@ -59,3 +60,4 @@
     padding: 0;
   }
 }
+

@@ -8,9 +8,14 @@ const galleryNav = document.querySelector(".galleryNav");
 const healthNav = document.querySelector(".health");
 const sendMessageBtn = document.querySelector(".SendBtn");
 const carousel = document.querySelector(".carousel");
-const statsUrl = "https://fastapionly.herokuapp.com/stats"; // Live url
-// const statsUrl = "http://127.0.0.1:8000/stats"; // Local url
+// Live
 const BASE_URL = "https://fastapionly.herokuapp.com"; // Live url
+
+// Staging
+// const BASE_URL = "https://fastapi-docker-mathias.herokuapp.com"; // Local url
+const statsUrl = `${BASE_URL}/stats`; // Local url
+
+// Local
 // const BASE_URL = "http://127.0.0.1:8000"; // Local url
 
 const loader = document.getElementById("loader");

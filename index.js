@@ -101,40 +101,10 @@ function renderMilstones(e) {
 
 // -------------Gallery------------
 
-// function renderGalleryHandler_org(e) {
-//   // loader.style.display = "block";
-//   main.addEventListener("click", imageFullScreen);
-//   markSideNav(e);
-//   main.innerHTML = "";
-//   const divEl = document.createElement("div");
-//   divEl.classList.add("row", "row-cols-1", "row-cols-md-6", "g-3");
-//   divEl.style = "margin-right: 0px";
-//   // Loop here below
-//   let images1 = [];
-//   axios.get(BASE_URL + "/gallery").then((res) => {
-//     for (let i = 0; i < res.data.length; i++) {
-//       const div = document.createElement("div");
-//       div.innerHTML = `</div> <div class="col">
-// 		<div class="">
-// 		  <img src="/Resources/${res.data[i].path}" class="img-fluid rounded card-img-top" alt="..." loading="lazy" />
-// 		</div>
-// 		</div>`;
-//       divEl.append(div);
-//     }
-//   });
-//   const fullDiv = document.createElement("div");
-//   const fullImg = document.createElement("img");
-//   fullImg.id = "full-screen-img";
-//   fullDiv.id = "full-screen-div";
-//   fullDiv.append(fullImg);
-//   // End loop
-//   main.classList.add("container");
-//   main.append(divEl);
-//   main.append(fullDiv);
-// }
-
 function renderGalleryHandler(e) {
   // loader.style.display = "block";
+  main.removeAttribute("class");
+
   main.addEventListener("click", imageFullScreen);
   main.innerHTML = "";
   const divEl = document.createElement("div");
@@ -145,13 +115,10 @@ function renderGalleryHandler(e) {
     "row-cols-lg-6",
     "g-3"
   );
-  // divEl.style = "margin-right: 0px";
-  // Loop here below
   axios.get(BASE_URL + "/gallery").then((res) => {
     for (let i = 0; i < res.data.length; i++) {
       const div = document.createElement("div");
-      // let valid = false;
-      // axios.get(BASE_URL + "/images/" + res.data[i].path);
+
       div.innerHTML = `</div> <div class="col">
 		<div class="">
 		  <img src="${BASE_URL}/images/${res.data[i].path}" onError=removeUnusedImages(this) class=" img-fluid rounded" id="cardImgTop" alt="..." loading="lazy" />
@@ -224,10 +191,19 @@ function renderHealth(e) {
 // -------------NEWS------------
 
 function getNews(e) {
-  axios.get(BASE_URL + "/feed").then((res) => {
-    let reversedArr = res.data.reverse();
-    news.textContent = reversedArr[0].content;
-  });
+  try {
+    axios.get(BASE_URL + "/feed").then((res) => {
+      // console.log(res);
+      if (!res.data[0]) {
+        news.textContent = "Default news";
+      } else {
+        let reversedArr = res.data.reverse();
+        news.textContent = reversedArr[0].content;
+      }
+    });
+  } catch (error) {
+    // console.log(error)
+  }
 }
 
 // -------------SHOW LOADER------------
@@ -252,6 +228,6 @@ news.addEventListener("click", renderHealth);
 getNews();
 
 document.addEventListener("scroll", () => {
-  console.log
+  console.log;
   removeFullscreen();
 });
