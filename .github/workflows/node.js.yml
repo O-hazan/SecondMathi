@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/checkout@main
+#       - uses: actions/checkout@main
         with:
          name: ohazan/second-mathi-wdio   
 #          ref: refs/heads/release
