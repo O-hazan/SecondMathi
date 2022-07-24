@@ -18,7 +18,7 @@ jobs:
       - run: serve &
       - uses: actions/checkout@master
         with:
-         name: ohazan/second-mathi-wdio 
+         name: O-hazan/second-mathi-wdio 
       - uses: actions/setup-node@v3
         with:
           node-version: 16
