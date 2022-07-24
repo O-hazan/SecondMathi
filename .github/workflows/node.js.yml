@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/checkout@main
+      - uses: actions/checkout@master
         with:
          name: ohazan/second-mathi-wdio   
       - run: npm install -g serve
