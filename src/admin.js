@@ -4,7 +4,8 @@ const messagesNav = document.getElementById("messagesNav");
 const newsNav = document.getElementById("newsNav");
 const noMoreMessages = `<div class="noMessage"><h1 class="noMessageH">No new messages</h1></div>`;
 const galleryNav = document.getElementById("galleryNav");
-const BASE_URL = "https://fastapionly.herokuapp.com";
+// const BASE_URL = "https://fastapionly.herokuapp.com";
+const BASE_URL = "http://127.0.0.1:3000"; // Local serve
 // const BASE_URL = "http://127.0.0.1:8000"; // Local url
 const stats = `<table
 class="table table-hover mx-auto pt-4"
