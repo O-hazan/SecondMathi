@@ -13,7 +13,7 @@ const carousel = document.querySelector(".carousel");
 
 // Staging
 // const BASE_URL = "https://fastapi-docker-mathias.herokuapp.com"; // Local url
-
+// Adding random coment for testing commit
 // Local
 const BASE_URL = "http://127.0.0.1:3000"; // Local serve
 
