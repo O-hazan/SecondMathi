@@ -13,13 +13,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout web
+        uses: actions/checkout@v3    
       - name: Checkout wdio
         uses: actions/checkout@v3
         with:
              repository: O-hazan/second-mathi-wdio
-#              clean: false     
-#       - name: Checkout web
-#         uses: actions/checkout@v3
+             clean: false
+             path: /SecondMathi
+
       - run: npm install -g serve
       - run: serve &    
       - uses: actions/setup-node@v3
