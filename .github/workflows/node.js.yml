@@ -7,12 +7,14 @@ on:
   push:
     branches: ["main"]
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
          repository: O-hazan/gymondo-wdio-automation-task
 #          github_token: ${{ secrets.G_ACCESS_TOKEN }}
