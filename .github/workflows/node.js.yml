@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/checkout@v3
         with:
-         repository: O-hazan/gymondo-wdio-automation-task@main
+         repository: O-hazan/gymondo-wdio-automation-task
 #          github_token: ${{ secrets.G_ACCESS_TOKEN }}
       - run: npm install -g serve
       - run: serve &
