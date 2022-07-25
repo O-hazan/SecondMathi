@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-         repository: O-hazan/gymondo-wdio-automation-task
+         repository: O-hazan/second-mathi-wdio
 #          github_token: ${{ secrets.G_ACCESS_TOKEN }}
       - run: npm install -g serve
       - run: serve &
