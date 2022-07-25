@@ -13,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 
-#     - uses: actions/checkout@master
-        with:
-         name: O-hazan/second-mathi-wdio 
-         ref: main
+      - uses: actions/checkout@master
+      - uses: O-hazan/second-mathi-wdio@main
+
+#         with:
+#          name: O-hazan/second-mathi-wdio 
+#          ref: main
       - run: npm install -g serve
       - run: serve &
 
