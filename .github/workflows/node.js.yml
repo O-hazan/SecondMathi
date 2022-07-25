@@ -14,7 +14,7 @@ jobs:
       - name: build web
       - uses: actions/checkout@v3
       - name: Checkout wdio
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           repository: O-hazan/second-mathi-wdio
 #           path: './bar'
