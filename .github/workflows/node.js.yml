@@ -16,7 +16,7 @@ jobs:
 #         with:
 #           clean: false
       - name: Checkout
-        uses: actions/checkout@v3
+#         uses: actions/checkout@v3
         with:
          repository: O-hazan/second-mathi-wdio
 #          github_token: ${{ secrets.G_ACCESS_TOKEN }}
