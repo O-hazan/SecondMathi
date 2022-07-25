@@ -12,9 +12,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Build Web App
+      - uses: O-hazan/second-mathi-wdio@master
+        with:
+#           owner: keithweaver
+#           repo: demo-web-api
+#           github_token: ${{ secrets.G_ACCESS_TOKEN }}
+          workflow_file_name: letsSee.yml
+
+    
+    
+    
+    
+    
       - uses: actions/checkout@v3 
       - uses: actions/checkout@master
-      - uses: O-hazan/second-mathi-wdio@main
+#       - uses: O-hazan/second-mathi-wdio@main
 
 #         with:
 #          name: O-hazan/second-mathi-wdio 
