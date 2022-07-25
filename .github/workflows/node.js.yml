@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 16
       
-#       - uses: actions/checkout@master
+#     - uses: actions/checkout@master
 #         with:
 #          name: O-hazan/second-mathi-wdio
 #          workflow_file_name: letsSee.yml
