@@ -5,29 +5,51 @@ name: Node.js Package
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: build web
       - uses: actions/checkout@v3
       - uses: actions/checkout@v2
         with:
-          repository: O-hazan/second-mathi-wdio
-#           path: './bar'
+         repository: ohazan/second-mathi-wdio   
+      - run: npm install -g serve
+      - run: serve &
+
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      
-#     - uses: actions/checkout@master
-#         with:
-#          name: O-hazan/second-mathi-wdio
-#          workflow_file_name: letsSee.yml
-#          ref: /
       - run: npm install -g serve
       - run: serve &
       - run: sudo apt-get install chromium-browser
       - run: npm install
       - run: npx wdio
+      
+      
+      
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: build web
+#       - uses: actions/checkout@v3
+#       - uses: actions/checkout@v2
+#         with:
+#           repository: O-hazan/second-mathi-wdio
+# #           path: './bar'
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 16
+      
+# #     - uses: actions/checkout@master
+# #         with:
+# #          name: O-hazan/second-mathi-wdio
+# #          workflow_file_name: letsSee.yml
+# #          ref: /
+#       - run: npm install -g serve
+#       - run: serve &
+#       - run: sudo apt-get install chromium-browser
+#       - run: npm install
+#       - run: npx wdio
