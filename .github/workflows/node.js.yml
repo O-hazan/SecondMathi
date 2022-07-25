@@ -23,7 +23,7 @@ jobs:
           node-version: 16
           clean: false
       - name: Checkout wdio
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with:
              clean: false
              repository: O-hazan/second-mathi-wdio
