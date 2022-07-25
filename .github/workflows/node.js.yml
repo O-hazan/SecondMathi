@@ -16,7 +16,7 @@ jobs:
 #       - uses: actions/checkout@master
         with:
          name: O-hazan/second-mathi-wdio 
-         ref: refs/heads/master
+         ref: master
       - run: npm install -g serve
       - run: serve &
 
