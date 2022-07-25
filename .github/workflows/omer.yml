@@ -31,6 +31,11 @@ jobs:
       - run: cd  /home/runner/work/SecondMathi/SecondMathi/src
       - run: npm install
       - run: npx wdio
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+            name: logs
+            path: logs      
 
 #       - name: Checkout
 #         uses: actions/checkout@v3
