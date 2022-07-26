@@ -13,17 +13,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout web
-        uses: actions/checkout@v3    
+#       - name: Checkout web
+#         uses: actions/checkout@v3    
       - name: Checkout wdio
         uses: actions/checkout@v3
         with:
              repository: O-hazan/second-mathi-wdio
              clean: false
-             path: ../../work
+#              path: ../../work
 
-      - run: npm install -g serve
-      - run: serve &    
+#       - run: npm install -g serve
+#       - run: serve &    
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -31,11 +31,7 @@ jobs:
       - run: cd  /home/runner/work/SecondMathi/SecondMathi/src
       - run: npm install
       - run: npx wdio
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-            name: logs
-            path: logs      
+#       -     
 
 #       - name: Checkout
 #         uses: actions/checkout@v3
