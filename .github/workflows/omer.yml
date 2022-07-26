@@ -20,7 +20,7 @@ jobs:
         with:
              repository: O-hazan/second-mathi-wdio
              clean: false
-             path: ../src
+             path: ../../work
 
       - run: npm install -g serve
       - run: serve &    
