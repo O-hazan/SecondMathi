@@ -16,11 +16,11 @@ jobs:
       - name: Checkout web
         uses: actions/checkout@v3    
       - name: Checkout wdio
-        uses: O-hazan/second-mathi-wdio@master
-#         with:
-#              repository: O-hazan/second-mathi-wdio
-#              clean: false
-#              path: src
+        uses: actions/checkout@v3
+        with:
+             repository: O-hazan/second-mathi-wdio
+             clean: false
+             path: ../src
 
       - run: npm install -g serve
       - run: serve &    
