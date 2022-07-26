@@ -16,7 +16,7 @@ jobs:
       - name: Checkout web
         uses: actions/checkout@v3
       - run: |
-          cd ~/runner/work
+          cd ~/work
           mkdir test  
           cp -R ${{ github.workspace }} /test 
       - name: Checkout wdio
