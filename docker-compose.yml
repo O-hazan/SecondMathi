@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    image: ohazan/mathi-webapp
+    build: .
+    container_name: web
+    restart: always
+    ports:
+      - "80:8080"
+  test:
+    image: ohazan/mathi-wdio1
+    build: https://github.com/O-hazan/second-mathi-wdio.git
+    container_name: test
+    depends_on:
+      - web
