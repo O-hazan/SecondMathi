@@ -1,4 +1,4 @@
-name: Docker Compose Actions Workflow
+name: Test with wdio on docker
 on: push
 jobs:
   test:
