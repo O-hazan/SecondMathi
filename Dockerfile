@@ -2,7 +2,7 @@ FROM nginx
 
 EXPOSE 8080
 
-COPY . /usr/share/nginx/html
+COPY ./build /usr/share/nginx/html
 
 
 # FROM node:7.7.2-alpine
