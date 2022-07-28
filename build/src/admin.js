@@ -2,10 +2,13 @@ let messageCount = 0;
 const main = document.querySelector(".main");
 const messagesNav = document.getElementById("messagesNav");
 const newsNav = document.getElementById("newsNav");
-const noMoreMessages = `<div class="noMessage"><h1 class="noMessageH">No new messages</h1></div>`;
+const noMoreMessages = `<div class="pt-5 noMessage"><h1 class="noMessageH">No new messages</h1></div>`;
 const galleryNav = document.getElementById("galleryNav");
-const BASE_URL = "https://fastapionly.herokuapp.com";
+// const BASE_URL = "https://fastapionly.herokuapp.com";
 // const BASE_URL = "http://127.0.0.1:3000"; // Local serve
+
+// Staging
+const BASE_URL = "https://fastapi-docker-mathias.herokuapp.com";
 // const BASE_URL = "http://127.0.0.1:8000"; // Local url
 const stats = `<table
 class="table table-hover mx-auto pt-4"
@@ -50,6 +53,7 @@ function renderMessages(params) {
     //   div.style='max-height: 20px;'
     if (res.data.length == 0) {
       main.innerHTML = noMoreMessages;
+      main.classList.add("pt-5");
     }
     messageCount = 0;
     messageCount = res.data.length;
@@ -120,6 +124,10 @@ function callStats() {
 
 function displayStats(response) {
   const statsTbody = document.querySelector("tbody");
+  main.removeAttribute("class");
+
+  main.classList.add("container-sm", "px-0");
+
   let sendStats = document.getElementById("sendStats");
   if (response.data) {
     response = response.data;
@@ -283,6 +291,8 @@ function upload(e) {
 function renderGalleryHandler(params) {
   main.innerHTML = "";
   let form = document.createElement("form");
+  form.classList.add("pt-5");
+  form.style = "text-align: center";
   form.id = "uploadForm";
   form.action = "upload_file";
   form.role = "form";
