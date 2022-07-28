@@ -319,8 +319,8 @@ function renderGalleryHandler(params) {
 function uploadFile(e) {
   e.preventDefault();
   const formData = new FormData();
-  const fileInput = document.getElementById("file");
-  const desc = document.getElementById("desc").value;
+  let fileInput = document.getElementById("file");
+  let desc = document.getElementById("desc").value;
   if (
     fileInput.files[0].type == "image/heic" ||
     fileInput.files[0].type == ""
@@ -346,6 +346,8 @@ function uploadFile(e) {
         axios.post(`${BASE_URL}/gallery`, galleryObj);
       });
   }
+  document.getElementById("desc").value = "";
+  fileInput.value = "";
 }
 
 galleryNav.addEventListener("click", renderGalleryHandler);
