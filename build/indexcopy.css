@@ -1,0 +1,237 @@
+html {
+  height: 100%;
+
+}
+
+body {
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  top: 0;
+  bottom: 0;
+}
+
+main {
+  font-family: "Oswald", sans-serif;
+  font-size: large;
+}
+
+/* Navbar */
+
+.logo {
+  max-height: 28px;
+}
+
+.navbar {
+  padding-left: 3.33%;
+  /* border: black solid 1px; */
+  /* max-height: 58px; */
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  opacity: 0.9;
+}
+
+.nav-link {
+  color: white;
+}
+
+/* carousel */
+
+.carousel-item {
+  width: 100%;
+}
+
+.carousel-inner {
+  width: 100%;
+  max-height: 400px !important;
+  padding: 0;
+}
+
+/* News */
+
+.scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* line-height: 50px; */
+  text-align: center;
+  /* Starting position */
+  transform: translateX(00%);
+  /* Apply animation to this element */
+  animation: scroll-left 15s linear infinite;
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-d {
+  display: flex;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Send message */
+
+#labelSender {
+  margin-top: 10px;
+}
+
+.SendMessageForm {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+
+  /* max-width: 200px; */
+}
+
+/* Play date */
+
+.PlayDateForm {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+/* Stats Homepage */
+
+.currentStatsCard {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+/* Milestones Homepage */
+
+.milstoneDiv .card {
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+
+/* Stats page */
+
+tr {
+  text-align: center;
+}
+
+.cust-btn {
+  width: 78px !important;
+}
+
+/* Loading view */
+
+#loader {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* z-index: 999; */
+}
+
+#loader img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+}
+
+/* Gallery */
+
+/* Gallery full screen */
+
+.full-screen {
+  display: block;
+  height: 500px;
+  width: 500px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top */
+  padding-top: 1px;
+  padding-bottom: 1px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 730px;
+}
+
+.imgDesc {
+  margin: auto;
+  display: block;
+  max-width: 730px;
+  background-color: white;
+  height: 18%;
+  margin-top: 3px;
+  width: 50%;
+  color: black;
+  opacity: 0.4;
+  position: absolute;
+  top: 80%;
+  right: 25%;
+}
+
+/* The full screen Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size:50px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* For testing */
+
+.bg {
+  background: linear-gradient(
+    184deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  ); /* opacity: 0.7; */
+}
+
+.border1 {
+  border: solid 1px black;
+}
