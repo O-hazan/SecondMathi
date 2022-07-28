@@ -12,6 +12,6 @@ jobs:
         run: docker compose up --build --abort-on-container-exit
       - uses: jsmrcaga/action-netlify-deploy@v1.1.0
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.MY_TOKEN_SECRET }}
+          NETLIFY_AUTH_TOKEN: gehoN0H_h8uTqOYqftOk0aJv1cwtCNv5zWQqIuIKJ5U
           NETLIFY_DEPLOY_TO_PROD: true
           NETLIFY_SITE_ID: df44585c-60cf-427d-bf14-6a471e077750
