@@ -1,5 +1,5 @@
 let messageCount = 0;
-const main = document.querySelector(".main");
+const main = document.querySelector("#divi");
 const messagesNav = document.getElementById("messagesNav");
 const newsNav = document.getElementById("newsNav");
 const noMoreMessages = `<div class="pt-5 noMessage"><h1 class="noMessageH">No new messages</h1></div>`;
@@ -66,8 +66,7 @@ function renderMessages(params) {
         res.data[i].sender.charAt(0).toUpperCase() +
         res.data[i].sender.slice(1);
       card.style = "width: 20rem";
-      let cardId = res.data[i].id;
-      card.id = `a${cardId}`;
+      card.id = res.data[i].id;
       // Make res.data[i].title capital case
       card.innerHTML = `
           <div class="card-body">
@@ -96,24 +95,18 @@ function renderMessages(params) {
 
 function deleteMessages(e) {
   const messageId = e.target.closest("div").closest(".card").id;
-  const messageCleanId = e.target
-    .closest("div")
-    .closest(".card")
-    .id.substring(1);
   const message = e.target.closest("div").closest(".card");
-  const deleteObj = { data: { id: messageCleanId } };
+  const deleteObj = { data: { id: messageId } };
   const el = document.getElementById(messageId);
   el.remove();
-  axios
-    .delete(`${BASE_URL}/message/${messageCleanId}`, deleteObj)
-    .then((res) => {
-      if (res.status == 200) {
-        messageCount--;
-      }
-      if (messageCount == 0) {
-        main.innerHTML = noMoreMessages;
-      }
-    });
+  axios.delete(`${BASE_URL}/message/${messageId}`, deleteObj).then((res) => {
+    if (res.status == 200) {
+      messageCount--;
+    }
+    if (messageCount == 0) {
+      main.innerHTML = noMoreMessages;
+    }
+  });
 }
 
 function renderStatsHandler(e) {
@@ -131,7 +124,7 @@ function callStats() {
 
 function displayStats(response) {
   const statsTbody = document.querySelector("tbody");
-  main.removeAttribute("class");
+  // main.removeAttribute("class");
 
   main.classList.add("container-sm", "px-0");
 

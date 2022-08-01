@@ -107,3 +107,13 @@ p {
   align-content: center; */
   /* padding-left: 200px; */
 }
+
+.border1 {
+  border: 5px rgb(5, 106, 4) double;
+}
+
+#divi {
+  height: 500px;
+  margin-top: 66px;
+  /* margin-left: 666px; */
+}
