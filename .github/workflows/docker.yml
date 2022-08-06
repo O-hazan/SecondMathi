@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build the stack
+      - name: Build and test
         run: docker compose up --build --abort-on-container-exit
       - uses: jsmrcaga/action-netlify-deploy@v1.1.0
         with:
