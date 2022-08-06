@@ -1,15 +1,15 @@
 let messageCount = 0;
-const main = document.querySelector(".main");
+const main = document.querySelector("#divi");
 const messagesNav = document.getElementById("messagesNav");
 const newsNav = document.getElementById("newsNav");
 const noMoreMessages = `<div class="pt-5 noMessage"><h1 class="noMessageH">No new messages</h1></div>`;
 const galleryNav = document.getElementById("galleryNav");
-const BASE_URL = "https://fastapionly.herokuapp.com"; // live
+// const BASE_URL = "https://fastapionly.herokuapp.com";
 // const BASE_URL = "http://127.0.0.1:3000"; // Local serve
 
 // Staging
 // const BASE_URL = "https://fastapi-docker-mathias.herokuapp.com";
-// const BASE_URL = "http://127.0.0.1:8000"; // Local url
+const BASE_URL = "http://127.0.0.1:8000"; // Local url
 const stats = `<table
 class="table table-hover mx-auto pt-4"
 >
@@ -66,8 +66,7 @@ function renderMessages(params) {
         res.data[i].sender.charAt(0).toUpperCase() +
         res.data[i].sender.slice(1);
       card.style = "width: 20rem";
-      let cardId = res.data[i].id;
-      card.id = `a${cardId}`;
+      card.id = res.data[i].id;
       // Make res.data[i].title capital case
       card.innerHTML = `
           <div class="card-body">
@@ -96,24 +95,18 @@ function renderMessages(params) {
 
 function deleteMessages(e) {
   const messageId = e.target.closest("div").closest(".card").id;
-  const messageCleanId = e.target
-    .closest("div")
-    .closest(".card")
-    .id.substring(1);
   const message = e.target.closest("div").closest(".card");
-  const deleteObj = { data: { id: messageCleanId } };
+  const deleteObj = { data: { id: messageId } };
   const el = document.getElementById(messageId);
   el.remove();
-  axios
-    .delete(`${BASE_URL}/message/${messageCleanId}`, deleteObj)
-    .then((res) => {
-      if (res.status == 200) {
-        messageCount--;
-      }
-      if (messageCount == 0) {
-        main.innerHTML = noMoreMessages;
-      }
-    });
+  axios.delete(`${BASE_URL}/message/${messageId}`, deleteObj).then((res) => {
+    if (res.status == 200) {
+      messageCount--;
+    }
+    if (messageCount == 0) {
+      main.innerHTML = noMoreMessages;
+    }
+  });
 }
 
 function renderStatsHandler(e) {
@@ -131,7 +124,7 @@ function callStats() {
 
 function displayStats(response) {
   const statsTbody = document.querySelector("tbody");
-  main.removeAttribute("class");
+  // main.removeAttribute("class");
 
   main.classList.add("container-sm", "px-0");
 
@@ -323,7 +316,6 @@ function renderGalleryHandler(params) {
 }
 
 // WORKS??????
-
 function uploadFile(e) {
   e.preventDefault();
   const formData = new FormData();
@@ -339,7 +331,7 @@ function uploadFile(e) {
     formData.append("classified_id", 2);
     formData.append("file", fileInput.files[0]);
     axios
-      .post(BASE_URL + "/aws/", formData)
+      .post(BASE_URL + "/images/", formData)
       // axios({
       //   method: "post",
       //   url: BASE_URL + "/images",
@@ -350,48 +342,13 @@ function uploadFile(e) {
       //   },
       // })
       .then((res) => {
-        const galleryObj = { path: res.data.url, desc: desc };
+        const galleryObj = { path: res.data.filename, desc: desc };
         axios.post(`${BASE_URL}/gallery`, galleryObj);
       });
   }
   document.getElementById("desc").value = "";
   fileInput.value = "";
 }
-
-// OLD VERSION
-// function uploadFile(e) {
-//   e.preventDefault();
-//   const formData = new FormData();
-//   let fileInput = document.getElementById("file");
-//   let desc = document.getElementById("desc").value;
-//   if (
-//     fileInput.files[0].type == "image/heic" ||
-//     fileInput.files[0].type == ""
-//   ) {
-//     return alert("file is not supported");
-//   }
-//   if (fileInput.files[0]) {
-//     formData.append("classified_id", 2);
-//     formData.append("file", fileInput.files[0]);
-//     axios
-//       .post(BASE_URL + "/images/", formData)
-//       // axios({
-//       //   method: "post",
-//       //   url: BASE_URL + "/images",
-//       //   data: formData,
-//       //   headers: {
-//       //     Accept: "application/json",
-//       //     "Content-Type": "multipart/form-data",
-//       //   },
-//       // })
-//       .then((res) => {
-//         const galleryObj = { path: res.data.filename, desc: desc };
-//         axios.post(`${BASE_URL}/gallery`, galleryObj);
-//       });
-//   }
-//   document.getElementById("desc").value = "";
-//   fileInput.value = "";
-// }
 
 galleryNav.addEventListener("click", renderGalleryHandler);
 
