@@ -100,7 +100,6 @@ function renderMilstones(e) {
 }
 
 // -------------Gallery------------
-
 function renderGalleryHandler(e) {
   // loader.style.display = "block";
   main.removeAttribute("class");
@@ -121,7 +120,7 @@ function renderGalleryHandler(e) {
 
       div.innerHTML = `</div> <div class="col">
 		<div class="">
-		  <img src="${BASE_URL}/images/${res.data[i].path}" onError=removeUnusedImages(this) class=" img-fluid rounded" id="cardImgTop" alt="..." loading="lazy" />
+		  <img src="${res.data[i].path}" onError=removeUnusedImages(this) class=" img-fluid rounded" id="cardImgTop" alt="..." loading="lazy" />
 		</div>
 		</div>`;
       divEl.append(div);
@@ -138,6 +137,45 @@ function renderGalleryHandler(e) {
   main.append(divEl);
   main.append(fullDiv);
 }
+
+// OLD GALLERY
+// function renderGalleryHandler(e) {
+//   // loader.style.display = "block";
+//   main.removeAttribute("class");
+
+//   main.addEventListener("click", imageFullScreen);
+//   main.innerHTML = "";
+//   const divEl = document.createElement("div");
+//   divEl.classList.add(
+//     "row",
+//     "row-cols-1",
+//     "row-cols-md-4",
+//     "row-cols-lg-6",
+//     "g-3"
+//   );
+//   axios.get(BASE_URL + "/gallery").then((res) => {
+//     for (let i = 0; i < res.data.length; i++) {
+//       const div = document.createElement("div");
+
+//       div.innerHTML = `</div> <div class="col">
+// 		<div class="">
+// 		  <img src="${BASE_URL}/images/${res.data[i].path}" onError=removeUnusedImages(this) class=" img-fluid rounded" id="cardImgTop" alt="..." loading="lazy" />
+// 		</div>
+// 		</div>`;
+//       divEl.append(div);
+//     }
+//   });
+//   const fullDiv = document.createElement("div");
+//   const fullImg = document.createElement("img");
+//   fullImg.id = "full-screen-img";
+//   fullDiv.id = "full-screen-div";
+//   fullDiv.append(fullImg);
+//   // End loop
+//   main.classList.remove("container-sm");
+//   main.classList.add("container-fluid", "pt-3");
+//   main.append(divEl);
+//   main.append(fullDiv);
+// }
 
 function removeUnusedImages(img) {
   img.parentNode.parentNode.parentNode.remove();
@@ -228,6 +266,5 @@ news.addEventListener("click", renderHealth);
 getNews();
 
 document.addEventListener("scroll", () => {
-  console.log;
   removeFullscreen();
 });
